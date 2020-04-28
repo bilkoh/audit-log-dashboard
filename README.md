@@ -18,6 +18,14 @@ Bash scripts, running on 5 minute intervals, comb thru logs and spit out json of
     - Run `sudo ./bin/systemd-setup.sh add` to set this as an enabled systemd service.
     - Conversely `sudo ./bin/systemd-setup.sh remove` will remove it.
 - Set your browser to `http://localhost:3000`
+- To enable the optional authentication for express, uncomment lines 14-16 in app.js
+```
+// Auth
+#app.use(basicAuth({
+#    challenge: true,
+#    users: { 'admin': 'supersecret' }
+#}))
+```
 
 
 ### Screenshot
