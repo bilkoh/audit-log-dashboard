@@ -12,7 +12,7 @@ Bash scripts, running on 5 minute intervals, comb thru logs and spit out json of
 - `sudo ./bin/crontab-setup.sh add`
     - This will add the appropriate bash scripts to your crontab. (Yes they need root).
     - Conversely `sudo ./bin/crontab-setup.sh remove` will remove them.
-- See the `audit.rules` in repo's base dir? Add it to your `/etc/audit/rules.d/audit.rules`
+- See the `audit.rules` in repo's base dir? Add it to your `/etc/audit/rules.d/audit.rules` and run `sudo augenrules` and restart auditd.
 - Run `npm run start` to run the express server on port 3000.
 - Optional
     - Run `sudo ./bin/systemd-setup.sh add` to set this as an enabled systemd service.
@@ -26,7 +26,6 @@ Bash scripts, running on 5 minute intervals, comb thru logs and spit out json of
 #    users: { 'admin': 'supersecret' }
 #}))
 ```
-
 
 ### Screenshot
 ![audit-log-dashboard-screenshot](https://user-images.githubusercontent.com/43228593/80442437-bc73e900-88c1-11ea-8fc6-77e2596281c7.png)
