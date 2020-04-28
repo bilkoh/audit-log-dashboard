@@ -1,0 +1,23 @@
+#privEsc.dash
+    script.
+        var tableData = [];
+    h4= privEsc.title
+    #privEsc-table
+    each line in privEsc.data
+        //- p #{line.date} #{line.addr}
+        script.
+            tableData.push({'date': '#{line.date}', 'proctitle': '#{line.proctitle}' });
+
+    script.
+        var table = new Tabulator('#privEsc-table', {
+            maxHeight: 300,
+            data: tableData,
+            layout: "fitDataStretch",
+            pagination: 'local',
+            paginationSize: 6,
+            movableColumns: true,
+            columns: [
+                {title: 'Date', field: 'date', headerFilter: true},
+                {title: 'Command', field: 'proctitle', headerFilter: true}
+            ]
+        });

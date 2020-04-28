@@ -1,0 +1,27 @@
+#userMod.dash
+    script.
+        var tableData = [];
+    h4= userMod.title
+    #userMod-table
+    each line in userMod.data
+        //- p #{line.date} #{line.addr}
+        script.
+            tableData.push({'date': '#{line.date}', 'type': '#{line.type}', 'terminal': '#{line.terminal}', 'exe': '#{line.exe}', 'auid': '#{line.auid}', 'op': '#{line.op}' });
+
+    script.
+        var table = new Tabulator('#userMod-table', {
+            maxHeight: 300,
+            data: tableData,
+            layout: "fitDataStretch",
+            pagination: 'local',
+            paginationSize: 6,
+            movableColumns: true,
+            columns: [
+                {title: 'Date', field: 'date', headerFilter: true},
+                {title: 'User Mod', field: 'type', headerFilter: true},
+                {title: 'Terminal', field: 'terminal', headerFilter: true},
+                {title: 'Executable', field: 'exe', headerFilter: true},
+                {title: 'Audited user', field: 'auid', headerFilter: true},
+                {title: 'Operation', field: 'op', headerFilter: true}
+            ]
+        });

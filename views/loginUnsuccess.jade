@@ -1,0 +1,26 @@
+#loginUnsuccess.dash
+    script.
+        var tableData = [];
+    h4= loginUnsuccess.title
+    #loginUnsuccess-table
+    each line in loginUnsuccess.data
+        //- p #{line.date} #{line.addr}
+        script.
+            tableData.push({'date': '#{line.date}', 'addr': '#{line.addr}', 'hostname': '#{line.hostname}', 'terminal': '#{line.terminal}', 'exe': '#{line.exe}'});
+
+    script.
+        var table = new Tabulator('#loginUnsuccess-table', {
+            maxHeight: 300,
+            data: tableData,
+            layout: "fitDataStretch",
+            pagination: 'local',
+            paginationSize: 6,
+            movableColumns: true,
+            columns: [
+                {title: 'Date', field: 'date', headerFilter: true},
+                {title: 'IP', field: 'addr', headerFilter: true},
+                {title: 'Hostname', field: 'hostname', headerFilter: true},
+                {title: 'Terminal', field: 'terminal', headerFilter: true},
+                {title: 'Executable', field: 'exe', headerFilter: true}
+            ]
+        });

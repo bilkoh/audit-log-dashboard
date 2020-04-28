@@ -1,0 +1,22 @@
+#suspActivity.dash
+    script.
+        var tableData = [];
+    h4= suspActivity.title
+    #suspActivity-table
+    each line in suspActivity.data
+        script.
+            tableData.push({'date': '#{line.date}', 'proctitle': '#{line.proctitle}' });
+
+    script.
+        var table = new Tabulator('#suspActivity-table', {
+            maxHeight: 300,
+            data: tableData,
+            layout: "fitDataStretch",
+            pagination: 'local',
+            paginationSize: 6,
+            movableColumns: true,
+            columns: [
+                {title: 'Date', field: 'date', headerFilter: true},
+                {title: 'Command', field: 'proctitle', headerFilter: true}
+            ]
+        });
