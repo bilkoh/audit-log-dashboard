@@ -11,10 +11,10 @@ var indexRouter = require('./routes/index');
 var app = express();
 
 // Auth
-#app.use(basicAuth({
-#    challenge: true,
-#    users: { 'admin': 'supersecret' }
-#}))
+//app.use(basicAuth({
+//    challenge: true,
+//    users: { 'admin': 'supersecret' }
+//}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
